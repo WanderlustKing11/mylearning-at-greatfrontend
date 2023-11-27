@@ -17,48 +17,48 @@
 // counter(); // 6
 // counter(); // 7
 
-// export default function makeCounter(initialValue) {
-//     if (initialValue) {
-//       return function (value) {
-//         return value += 1;
-//       }
-//     } else {
-//       return function(value) {
-//         value = 0;
-//         return value += 1;
-//       }
-//     }
-// }
+export default function makeCounter(initialValue = 0) {
+  let count = initialValue;
 
-// const counter = makeCounter();
-// counter();
-
-// function addNum(a,b)
-// {
- 
-//   //nested function
-//   function logToConsole(message)
-//   {
-//     console.log(message);
-//   }
- 
-//   let result=a+b;
- 
-//   //invoking the nested function
-//   logToConsole("result is "+result)
-// }
- 
-// addNum(1,2)
-
-function yup(yesOrNo) {
-  return function () {
-    if (yesOrNo === 'yes') {
-      console.log("Yup!");
-    } else {
-      console.log("Nope!");
-    }
+  return function() {
+    return count++;
   }
 }
 
-const myFunc = yup('yes');
-myFunc();
+const counter = makeCounter(5);
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter());
+
+/////////////////////////////////
+
+// function createMultiplier(multiplier) {
+//   return function(number) {
+//     return number * multiplier;
+//   }
+// }
+
+// const double = createMultiplier(2);
+// const triple = createMultiplier(3);
+
+// console.log(double(5));
+// console.log(triple(5));
+
+//////////////////////////////////
+
+// This works
+
+// function yup(yesOrNo) {
+//   return function () {
+//     if (yesOrNo === 'yes') {
+//       console.log("Yup!");
+//     } else {
+//       console.log("Nope!");
+//     }
+//   }
+// }
+
+// const myFunc = yup('no');
+// myFunc();
